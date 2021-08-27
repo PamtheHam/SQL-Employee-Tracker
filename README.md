@@ -1,7 +1,3 @@
-# SQL-Employee-Tracker
-A command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL. 
-
-
 <!-- # 12 SQL: Employee Tracker
 
 ## Your Task
@@ -103,3 +99,39 @@ Try to add some additional functionality to your application, such as the abilit
 * Delete departments, roles, and employees.
 
 * View the total utilized budget of a department&mdash;in other words, the combined salaries of all employees in that department. -->
+
+# SQL-Employee-Tracker
+A command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL. 
+
+
+Here is a link to the walk-through video: 
+
+
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Contact Information](#contact-information)
+
+![Screenshot of sample README.md](./Sample/Sample-README-Screenshot.png)
+
+## Installation
+1. Clone this repository into a file on your computer into whichever folder you prefer
+2. Install Node.js
+3. Install the Inquirer package
+4. Enter 'node index.js' in the command line in an integrated terminal on the index.js file
+
+## Usage
+Use this application to easily and successfully create a professional README.md file.
+
+## Credits
+There were no other collaborators on this project, just me! 
+
+## Challenges
+The biggest challenge of this project was deciding which licenses to include in the README Generator. I stuck with the safe choice, and decided to use the licenses that GitHub lists when you are deciding which licenses are best to use for your project. 
+
+## Contact Information
+If you have any questions about this project, please email me here: Hammondpamelac@gmail.com. My GitHub username is: www.github.com/PamtheHam
