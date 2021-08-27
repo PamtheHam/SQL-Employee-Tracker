@@ -8,11 +8,10 @@ Because this application won’t be deployed, you’ll also need to create a wal
 
 ## User Story
 
-```md
 AS A business owner
 I WANT to be able to view and manage the departments, roles, and employees in my company
 SO THAT I can organize and plan my business
-```
+
 
 ## Acceptance Criteria
 
@@ -44,12 +43,7 @@ The following video shows an example of the application being used from the comm
 
 ## Getting Started
 
-You’ll need to use the [MySQL2 package](https://www.npmjs.com/package/mysql2) to connect to your MySQL database and perform queries, the [Inquirer package](https://www.npmjs.com/package/inquirer) to interact with the user via the command line, and the [console.table package](https://www.npmjs.com/package/console.table) to print MySQL rows to the console.
-
-**Important**: You will be committing a file that contains your database credentials. Make sure that your MySQL password is not used for any other personal accounts, because it will be visible on GitHub. In upcoming lessons, you will learn how to better secure this password, or you can start researching npm packages now that could help you.
-
 You might also want to make your queries asynchronous. MySQL2 exposes a `.promise()` function on Connections to upgrade an existing non-Promise connection to use Promises. To learn more and make your queries asynchronous, refer to the [npm documentation on MySQL2](https://www.npmjs.com/package/mysql2).
-
 
 You might want to use a separate file that contains functions for performing specific SQL queries you'll need to use. A constructor function or class could be helpful for organizing these. You might also want to include a `seeds.sql` file to pre-populate your database, making the development of individual features much easier.
 
@@ -68,37 +62,50 @@ Try to add some additional functionality to your application, such as the abilit
 * View the total utilized budget of a department&mdash;in other words, the combined salaries of all employees in that department. -->
 
 # SQL-Employee-Tracker
+
+## Description
 A command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL. 
 
+## User Story
+AS A business owner
+I WANT to be able to view and manage the departments, roles, and employees in my company
+SO THAT I can organize and plan my business
 
+## Walk-Through Video
 Here is a link to the walk-through video: 
 
+
+## Pictures of Application
+![Screenshot of sample README.md](./Sample/Sample-README-Screenshot.png)
+
+<br>
 
 ## Table of Contents
 
 - [Description](#description)
+- [User Story](#user-story)
+- [Walk-Through Video](#walk-through-video)
+- [Pictures of Application](#pictures-of-application)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 - [Contact Information](#contact-information)
 
-![Screenshot of sample README.md](./Sample/Sample-README-Screenshot.png)
-
 ## Installation
-1. Clone this repository into a file on your computer into whichever folder you prefer
+1. Clone this repository into whichever folder you prefer on your computer
 2. Install Node.js
 3. Install the Inquirer package
 4. Enter 'node index.js' in the command line in an integrated terminal on the index.js file
 
 ## Usage
-Use this application to easily and successfully create a professional README.md file.
-
+Use this application to manage your company's employee database. With this application, you will be able to view, add, and update all departments, roles, and employees at your company.
+<!-- The end result is a  -->
 ## Credits
 There were no other collaborators on this project, just me! 
 
 ## Challenges
-The biggest challenge of this project was deciding which licenses to include in the README Generator. I stuck with the safe choice, and decided to use the licenses that GitHub lists when you are deciding which licenses are best to use for your project. 
+The biggest challenge of this project was ///// 
 
 ## Contact Information
 If you have any questions about this project, please email me here: Hammondpamelac@gmail.com. My GitHub username is: www.github.com/PamtheHam

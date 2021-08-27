@@ -19,22 +19,22 @@ const db = mysql.createConnection(
     user: 'root',
     // MySQL password
     password: 'PuppyLion1!',
-    database: 'movie_db'
+    database: 'employeeTracker_db'
   },
-  console.log(`Connected to the movie_db database.`)
+  console.log(`Connected to the employeeTracker_db database.`)
 );
 
-// route to notes.html
-app.get('/api/movies', (req, res) => {
-  console.log('api/movies');
+// 
+app.get('/api/', (req, res) => {
+  console.log('api/');
   
-db.query('SELECT * FROM movies', function (err, results) {
+db.query('SELECT * FROM ', function (err, results) {
 })
 });
 
 
 // Query database
-db.query('SELECT * FROM movies', function (err, results) {
+db.query('SELECT * FROM ', function (err, results) {
   console.log(results);
 });
 
