@@ -1,74 +1,113 @@
-const express = require('express');
-// Import and require mysql2
+
+// Import and require npm packages
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table')
-
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 // Connect to database
 const db = mysql.createConnection(
   {
     host: 'localhost',
-    // MySQL username,
+    port: 3306,
     user: 'root',
-    // MySQL password
     password: 'PuppyLion1!',
     database: 'employeeTracker_db'
   },
   console.log(`Connected to the employeeTracker_db database.`)
 );
 
-// 
-app.get('/api/', (req, res) => {
-  console.log('api/');
-  
-db.query('SELECT * FROM ', function (err, results) {
+db.connect(function (err) {
+  if (err) throw err;
+  viewSomething();
 })
-});
 
+const viewSomething = () => {
 
-// Query database
-db.query('SELECT * FROM ', function (err, results) {
-  console.log(results);
-});
+      inquirer.prompt([
 
-// Default response for any other request (Not Found)
-app.use((req, res) => {
-  res.status(404).end();
-});
+      {
+        type: 'list',
+        name: 'choices',
+        message: 'What would you like to do?',
+        choices: [
+          'View all departments',
+          'View all roles',
+          'View all employees',
+          'Add a department',
+          'Add a role',
+          'Add an employee',
+          'Update an employee role',
+        ],
+      },
+    ])
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+      .then(function (value) {
 
+      switch (value.choices) {
 
-// const viewSomething = () => {
-
-//     let  = inquirer.prompt();
-
-//       switch () {
-//         case 'Manager':
-
-//         break;
+        case 'View all departments':
+        viewDepartments();
+        break;
   
-//         case 'Engineer':
+        case 'View all roles':
+        viewRoles();
+        break;
+  
+        case 'View all employees':
+        viewEmployees();
+        break;
 
-//         break;
-  
-//         case 'Intern':
+        case 'Add a department':
+        addDepartment();
+        break;
 
-//         break;
+        case 'Add a role':
+        addARole();
+        break;
+
+        case 'Add an employee':
+        addAnEmployee();
+        break;
+
+        case 'Update an employee role':
+        updateEmployeeRole();
+        break;
+      }
+    })
+  };
   
-//         default: "";
-//       }
-//     catch (error) {
-//       console.log(error);
-//     }
-//   };
-  
+
+const viewDepartments = () => {
+// show all departments
+  viewSomething();
+  } ;
+
+const viewRoles = () => {
+    // show all roles
+  viewSomething();
+  } ;
+
+const viewEmployees = () => {
+    // show all employees
+  viewSomething();
+  } ;
+
+const addDepartment = () => {
+    // create questions and an inquirer prompt for department input
+  viewSomething();
+  } ;
+
+const addARole = () => {
+    // create questions and an inquirer prompt for role input
+  viewSomething();
+  } ;
+
+const addAnEmployee = () => {
+   // create questions and an inquirer prompt for employee input
+  viewSomething();
+  } ;
+
+const updateEmployeeRole = () => {
+    // create questions and an inquirer prompt to change selected data
+  viewSomething();
+  } ;
