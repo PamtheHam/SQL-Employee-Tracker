@@ -1,20 +1,12 @@
 
 // Import and require npm packages
-const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const cTable = require('console.table')
+const cTable = require('console.table');
+const db = require('./db/connection');
+const util = require('util');
+const connection = require('./db/connection');
 
-// Connect to database
-const db = mysql.createConnection(
-  {
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'PuppyLion1!',
-    database: 'employeeTracker_db'
-  },
-  console.log(`Connected to the employeeTracker_db database.`)
-);
+const dbQuery = util.promisify(db.query);
 
 const viewSomething = () => {
 
@@ -75,33 +67,26 @@ const viewSomething = () => {
 // const viewDepartments = () => {
 // // show all departments
 
-// db.query('SELECT * FROM departments', (err, results) => {
-// .then(function (err, res) {
-// if (err) {
-// throw err;
-// } else {
-// console.table(results)
-// viewSomething();
+// dbQuery('SELECT * FROM departments')
+// .then(results => {
+//   console.table(results)
+// }).catch(err => {
+//   console.log(err)
+// })
 
-// }});
-// }
+// viewSomething();
 // }
 
 // const viewRoles = () => {
 //     // show all roles
-//   db.query('SELECT * FROM roles', (err, results) => {
-//   .then(function (err, res) {
-//   if (err) {
-//   throw err;
-// } else {
-//   console.table(results)
+//   dbQuery('SELECT * FROM roles')
+//     .then(results => {
+//       console.table(results)
+//     }).catch(err => {
+//       console.log(err)
+//     })
 //   viewSomething();
-// };
 // }
-// );
-// }
-// )
-// };
 
 
 
@@ -110,11 +95,11 @@ const viewSomething = () => {
 //     // show all employees
 //     db.query('SELECT employees.id, employees.first_name, employees.last_name, roles.title, roles.salary, departments.name AS department CONCAT(manager.first_name, " ", manager.last_name) AS manager FROM employees INNER JOIN roles on roles.id = employees.role_id INNER JOIN departments on departments.id', (err, results) => {
  
-//   .then(function (err, results) {
-//   if (err) {
-//   throw err;
-// } else {
-//   console.table(results)
+  // .then(results => {
+  //   console.table(results)
+  // }).catch(err => {
+  //   console.log(err)
+  // })
 //   viewSomething();
 
 // }})
@@ -125,23 +110,21 @@ const viewSomething = () => {
 
 // const addADepartment = async () => {
 
+
+
 //   const addDepartment = await inquirer.prompt([
 //       {
 //         type: 'input',
 //         name: 'department',
 //         message: 'What is the name of the new department?',
 //       },
-//   ])
+//   ]);
 
-//   .then(function (err, res) {
-//           if (err) {
-//         throw err;
-//       } else {
-//         console.table(res)
+//   const [departmentName] = await connection.execute('INSERT INTO departments (name) VALUES ("${addDepartment.department}")');
+//   console.log('Added new department')
+
 //         viewSomething();
-
-//   }});
-//   } ;
+//   };
 
 const addARole = () => {
     // create questions and an inquirer prompt for role input
@@ -167,13 +150,11 @@ const addARole = () => {
       },
   ])
 
-  .then(function (res) {
-  if (err) {
-  throw err;
-  } else {
-  console.table(results)
-  viewSomething();
-  } ;
+  .then(results => {
+    console.table(results)
+  }).catch(err => {
+    console.log(err)
+  });
 
 const addAnEmployee = () => {
    // create questions and an inquirer prompt for employee input
@@ -205,14 +186,14 @@ const addAnEmployee = () => {
     },
  ])
 
-  .then(function (res) {
-  if (err) {
-  throw err;
- } else {
-  console.table(results)
-  viewSomething();
- }
-  });
+// .then(results => {
+//   console.table(results)
+// }).catch(err => {
+//   console.log(err)
+// })
+//   viewSomething();
+//  }
+//   });
 
 const updateEmployeeRole = () => {
     // create questions and an inquirer prompt to change selected data
@@ -237,5 +218,11 @@ const updateEmployeeRole = () => {
       },
 
     ]);
+
+    .then(results => {
+      console.log(results)
+    }).catch(err => {
+      console.log(err)
+    })
   viewSomething();
   };
